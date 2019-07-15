@@ -48,4 +48,11 @@ def index():
 def animation():
     return render_template('home/animation.html')
 
-# https://www.bilibili.com/video/av51720348/?p=10 04:09
+
+@home.route('/search/')
+def search():
+    return render_template("home/search.html")
+
+@home.route('/play/')
+def play():
+    return render_template("home/play.html")
