@@ -1,15 +1,7 @@
 # -*- coding:utf-8 -*-
 # __author__ = "shitou6"
 from datetime import datetime
-
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-import pymysql
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql+pymysql://root:stfk0615@127.0.0.1/flask_movie'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
-
-db = SQLAlchemy(app)
+from app import db
 
 
 # 会员
@@ -154,6 +146,10 @@ class Admin(db.Model):
 
     def __repr__(self):
         return "<Admin %r>" % self.name
+
+    def check_pwd(self,pwd):
+        from werkzeug.security import check_password_hash
+        return check_password_hash(self.pwd,pwd)
 
 # 管理员登录日志
 
