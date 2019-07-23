@@ -38,6 +38,7 @@
                             <th>管理员角色</th>
                             <th>添加时间</th>
                         </tr>
+                        {% for v in range(10) %}
                         <tr>
                             <td>1</td>
                             <td>jinlong</td>
@@ -52,6 +53,7 @@
                             <td>系统管理员</td>
                             <td>2017-06-01</td>
                         </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -71,4 +73,13 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function () {
+        $("#g-11").addClass('active')
+        $("#g-11-2").addClass('active')
+    })
+</script>
 {% endblock %}
